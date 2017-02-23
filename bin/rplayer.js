@@ -7,18 +7,19 @@ const RPlayer = require('../lib/rplayerlib.js');
 
 class Main {
     constructor() {
-        this.rplayer = new RPlayer();
+        this.rplayer = null;
         this.options = new Options(process.argv);
     }
 
     run() {
         try {
             this.options.checkDependencies();
-            let options = this.options.get();
+            let options = this.options.getArgs();
             if (options.help) {
                 this.options.help();
             } else {
-                this.rplayer.run(options);
+                this.rplayer = new RPlayer(options, this.options.getConfig());
+                this.rplayer.run();
             }
         } catch (e) {
             console.error(e.message);
