@@ -16,7 +16,7 @@ class Main {
             this.options.checkDependencies();
             let options = this.options.getArgs();
             if (options.help) {
-                this.options.help();
+                Options.help();
             } else {
                 this.rplayer = new RPlayer(options, this.options.getConfig());
                 this.rplayer.run();
