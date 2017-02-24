@@ -22,7 +22,7 @@ class Main {
                 this.rplayer.run();
             }
         } catch (e) {
-            console.error(e.message);
+            console.error(e);
         }
     }
 }
